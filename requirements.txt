@@ -14,4 +14,5 @@ joblib
 types-PyYAML
 scipy
 streamlit
+scikit-learn
 -e .
