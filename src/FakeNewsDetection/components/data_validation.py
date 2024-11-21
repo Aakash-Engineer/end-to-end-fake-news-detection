@@ -26,7 +26,7 @@ class DataValidation:
             
 
             with open(self.config.status_file_path, "w") as f:
-                f.write(f"Validation Status: {val_status}")
+                f.write(f"{val_status}")
                 if val_status:
                     logger.info("Data Validation Passed")
 

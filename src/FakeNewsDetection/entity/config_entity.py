@@ -14,3 +14,11 @@ class DataValidationConfig:
     unzip_data_path: Path
     status_file_path: Path
     all_schema: dict
+
+@dataclass
+class PreprocessingConfig:
+    root_dir: Path
+    raw_data_path: Path
+    train_data_path: Path
+    test_data_path: Path
+    status_file_path: Path

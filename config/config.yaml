@@ -14,3 +14,12 @@ data_validation:
   root_dir: artifacts/data_validation
   unzip_data_path: artifacts/data_ingestion/data.csv
   status_file_path: artifacts/data_validation/status.txt
+
+
+# Data Preprocessing Configuration
+data_preprocessing:
+  root_dir: artifacts/data_preprocessing
+  raw_data_path: artifacts/data_ingestion/data.csv
+  train_data_path: artifacts/data_preprocessing/train.csv
+  test_data_path: artifacts/data_preprocessing/test.csv
+  status_file_path: artifacts/data_validation/status.txt

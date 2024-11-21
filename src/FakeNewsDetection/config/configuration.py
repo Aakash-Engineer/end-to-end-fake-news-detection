@@ -1,6 +1,6 @@
 from FakeNewsDetection.constants import *
 from FakeNewsDetection.utils.common import read_yaml, create_directories
-from FakeNewsDetection.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from FakeNewsDetection.entity.config_entity import DataIngestionConfig, DataValidationConfig, PreprocessingConfig
 
 class ConfigurationManager:
     def __init__(self, 
@@ -33,4 +33,16 @@ class ConfigurationManager:
             unzip_data_path=config.unzip_data_path,
             status_file_path=config.status_file_path,
             all_schema=self.schema.COLUMNS
+        )
+    
+    def get_data_preproconfig(self):
+        config = self.config.data_preprocessing
+        create_directories([config.root_dir])
+
+        return PreprocessingConfig(
+            root_dir= Path(config.root_dir),
+            raw_data_path= Path(config.raw_data_path),
+            train_data_path= Path(config.train_data_path),
+            test_data_path= Path(config.test_data_path),
+            status_file_path= Path(config.status_file_path)
         )
