@@ -1,6 +1,9 @@
 from FakeNewsDetection.components.data_validation import DataValidation
 from FakeNewsDetection.config.configuration import ConfigurationManager
 from FakeNewsDetection import logger
+import nltk
+nltk.download('punkt')
+nltk.download('punkt_tab')
 
 
 
