@@ -1,8 +1,7 @@
-import streamlit as st
-import pickle
-import pandas as pd
-from FakeNewsDetection.pipeline.prediction import Prediction
 import joblib
+import pandas as pd
+import streamlit as st
+from FakeNewsDetection.pipeline.prediction import Prediction
 
 # Set page configuration
 st.set_page_config(
