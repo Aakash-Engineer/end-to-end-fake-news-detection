@@ -1,7 +1,16 @@
 artifact_root: artifacts
 
+
+# Data Ingestion Configuration
 data_ingestion:
   root_dir: artifacts/data_ingestion
   source_url: 'https://drive.google.com/uc?export=download&id=1GeXK53uPeCAaZdKFaQCLh-YdarrQsSvA'
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
+
+
+# Data Validation Configuration
+data_validation:
+  root_dir: artifacts/data_validation
+  unzip_data_path: artifacts/data_ingestion/data.csv
+  status_file_path: artifacts/data_validation/status.txt

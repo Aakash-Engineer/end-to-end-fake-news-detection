@@ -1,0 +1,6 @@
+COLUMNS:
+  title: object
+  text: object
+  subject: object
+  date: object
+  label: int64
