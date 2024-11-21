@@ -31,8 +31,16 @@ st.sidebar.markdown("""
 - **Features:** 200
 """)
 
+# Initialize session state to manage the prediction state
+if 'prediction' not in st.session_state:
+    st.session_state.prediction = None
+
 # User input
 user_input = st.text_area("Enter news text here", height=200)
+
+# Clear the prediction result when the user input changes
+if user_input == "":
+    st.session_state.prediction = None
 
 if st.button("Predict"):
     if user_input.strip():
@@ -41,10 +49,13 @@ if st.button("Predict"):
         input_vect = vectorizer.transform(user_input_df['text'])
         # Predict using the loaded model
         prediction = model.predict(input_vect)
-        # Display the result
-        if prediction[0] == 0:
-            st.success("The news is **Real**.")
-        else:
-            st.error("The news is **Fake**.")
+        # Store the prediction in session state
+        st.session_state.prediction = prediction[0]
     else:
         st.warning("Please enter the news text.")
+
+# Display the result based on the prediction state
+if st.session_state.prediction == 0:
+    st.success("The news is **Real**.")
+elif st.session_state.prediction == 1:
+    st.error("The news is **Fake**.")
