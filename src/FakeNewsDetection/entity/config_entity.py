@@ -22,3 +22,9 @@ class PreprocessingConfig:
     train_data_path: Path
     test_data_path: Path
     status_file_path: Path
+
+@dataclass
+class TrainingConfig:
+    root_dir: Path
+    train_data_path: Path
+    model_path: Path

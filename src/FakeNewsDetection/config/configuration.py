@@ -1,6 +1,6 @@
 from FakeNewsDetection.constants import *
 from FakeNewsDetection.utils.common import read_yaml, create_directories
-from FakeNewsDetection.entity.config_entity import DataIngestionConfig, DataValidationConfig, PreprocessingConfig
+from FakeNewsDetection.entity.config_entity import DataIngestionConfig, DataValidationConfig, PreprocessingConfig, TrainingConfig
 
 class ConfigurationManager:
     def __init__(self, 
@@ -45,4 +45,13 @@ class ConfigurationManager:
             train_data_path= Path(config.train_data_path),
             test_data_path= Path(config.test_data_path),
             status_file_path= Path(config.status_file_path)
+        )
+    def get_training_config(self) -> TrainingConfig:
+        config = self.config.training
+        create_directories([config.root_dir])
+
+        return TrainingConfig(
+            root_dir = Path(config.root_dir),
+            train_data_path = Path(config.train_data_path),
+            model_path = Path(config.model_path)
         )
