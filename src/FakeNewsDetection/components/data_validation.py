@@ -8,7 +8,7 @@ class DataValidation:
     def __init__(self, config: DataValidationConfig):
         self.config = config
         
-    def validate_data_columns(self) ->bool:
+    def validate_data_columns(self):
         try:
             val_status = None
             data = pd.read_csv(self.config.unzip_data_path, nrows=5)

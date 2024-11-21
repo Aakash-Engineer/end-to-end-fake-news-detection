@@ -28,3 +28,12 @@ class TrainingConfig:
     root_dir: Path
     train_data_path: Path
     model_path: Path
+    vectorizer_path: Path
+
+@dataclass
+class EvaluationConfig:
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    evaluation_metrics_path: Path
+    vectorizer_path: Path

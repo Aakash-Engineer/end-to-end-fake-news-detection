@@ -30,3 +30,13 @@ training:
   root_dir: artifacts/training
   train_data_path: artifacts/data_preprocessing/train.csv
   model_path: artifacts/training/model.pkl
+  vectorizer_path: artifacts/training/vectorizer.pkl
+
+
+# Evaluation Configuration
+evaluation:
+  root_dir: artifacts/evaluation
+  test_data_path: artifacts/data_preprocessing/test.csv
+  model_path: artifacts/training/model.pkl
+  evaluation_metrics_path: artifacts/evaluation/evaluation_metrics.json
+  vectorizer_path: artifacts/training/vectorizer.pkl

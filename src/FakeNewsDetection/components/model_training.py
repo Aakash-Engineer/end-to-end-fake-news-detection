@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 import joblib
 from FakeNewsDetection.entity.config_entity import TrainingConfig
+import joblib
 
 class Training:
     def __init__(self, config: TrainingConfig):
@@ -17,11 +18,15 @@ class Training:
             train_data = pd.read_csv(self.config.train_data_path)
             logger.info(f"Training data loaded from {self.config.train_data_path}")
             # vectorize it
-            vectorizer = TfidfVectorizer(max_features=200)
+            vectorizer = TfidfVectorizer(max_features=200, stop_words='english')
             X = vectorizer.fit_transform(train_data['text']).toarray()
             y = train_data['label'].values
             # remove train data from memory
             del train_data
+
+            # save vectorizer
+            joblib.dump(vectorizer, self.config.vectorizer_path)
+            logger.info(f"Vectorizer saved at {self.config.vectorizer_path}")
 
             # create logidtic regression model
             model = LogisticRegression()
